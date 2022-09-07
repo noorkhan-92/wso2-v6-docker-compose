@@ -1,0 +1,11 @@
+version: '2.3'
+services:
+  identity-server:
+    platform: linux/amd64
+    build: ./wso2-is-docker-build
+    ports:
+      - "9763:9763"
+      - "9443:9443"
+    volumes:
+      - ./conf:/home/wso2carbon/wso2is-6.0.0/repository/conf
+
