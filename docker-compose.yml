@@ -1,5 +1,22 @@
 version: '2.3'
 services:
+  mysql:
+    platform: linux/amd64
+    image: mysql:5.7.29
+    ports:
+      - 3306
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_USER: wso2carbon
+        MYSQL_PASSWORD: wso2carbon
+    volumes:
+      - ./mysql-conf/scripts:/docker-entrypoint-initdb.d
+      - ./mysql-conf/my.cnf:/etc/mysql/my.cnf
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-uroot", "-proot"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
   identity-server:
     platform: linux/amd64
     build: ./wso2-is-docker-build
@@ -7,5 +24,8 @@ services:
       - "9763:9763"
       - "9443:9443"
     volumes:
-      - ./conf:/home/wso2carbon/wso2is-6.0.0/repository/conf
+      - ./deployment.toml:/home/wso2carbon/wso2is-6.0.0/repository/conf/deployment.toml
+    depends_on:
+      mysql:
+        condition: service_healthy
 

@@ -72,3 +72,21 @@ app_password= "dashboard"
 #password= "xxxx"
 #hostname= "smtp.gmail.com"
 #port= 587
+
+[cors]
+allowed_origins = [
+"http://localhost:3000",
+"http://internaltools.din:3000"
+]
+supported_methods = [
+"GET",
+"POST",
+"HEAD",
+"OPTIONS",
+"PUT",
+"PATCH",
+"HEAD",
+"DELETE",
+"PATCH"
+]
+
