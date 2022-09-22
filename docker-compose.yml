@@ -12,6 +12,7 @@ services:
     volumes:
       - ./mysql-conf/scripts:/docker-entrypoint-initdb.d
       - ./mysql-conf/my.cnf:/etc/mysql/my.cnf
+      - wso2is-mysql-datavolume:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-uroot", "-proot"]
       interval: 30s
@@ -29,3 +30,5 @@ services:
       mysql:
         condition: service_healthy
 
+volumes:
+  wso2is-mysql-datavolume:
