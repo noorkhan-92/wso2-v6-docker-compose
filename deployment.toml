@@ -35,3 +35,12 @@ password = "wso2carbon"
 return_only_mapped_local_roles = true
 return_manually_added_local_roles = true
 
+[cors]
+allow_generic_http_requests = true
+allow_any_origin = true
+allow_subdomains = false
+support_any_header = true
+supports_credentials = true
+max_age = 3600
+tag_requests = false
+
