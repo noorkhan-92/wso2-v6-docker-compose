@@ -19,7 +19,6 @@ services:
       timeout: 60s
       retries: 5
   identity-server:
-    platform: linux/amd64
     build: ./wso2-is-docker-build
     ports:
       - "9763:9763"
