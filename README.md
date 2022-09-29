@@ -9,7 +9,3 @@ This repository provides a docker-compose script for running and configuring WSO
 - the `deployment.toml` contains the configuration, make any changes you want.
 - run `docker-compose up`. This command will build the container, mount the config folder and start the service passing through ports `9763` and `9443`
 
-
-# TODOs:
-
-- reduce startup time
